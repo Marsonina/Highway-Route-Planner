@@ -18,18 +18,6 @@ The program reads commands from **stdin** and writes responses to **stdout**, on
 | `rottama-auto d a` | Remove one car with range *a* from the station at distance *d*. | `rottamata` / `non rottamata` |
 | `pianifica-percorso s e` | Plan the shortest-stop route from station *s* to station *e*. Both stations are guaranteed to exist. | Space-separated stop distances, or `nessun percorso` |
 
-## Example
-
-Given this highway:
-
-```
-Station (km):    0     20          30       45       50
-Cars (range):  —     5,10,15,25   40       30       20,25
-```
-
-- **20 → 50** produces `20 30 50` (not `20 45 50` — tiebreaker picks earlier intermediate stops).
-- **50 → 20** produces `50 30 20` (backward travel is supported).
-
 ## Data Structures
 
 - **Sorted station array** — stations are stored in a dynamically resized array kept sorted by distance, enabling O(log n) lookup via binary search.
